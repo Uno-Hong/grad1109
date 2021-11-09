@@ -4,6 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <title>플래너</title>
+<style>
+@font-face {
+      src : url("../css/DoHyeon-Regular.ttf"); 
+      font-family: "Dohyeon" ;
+}
+</style>
+
 </head>
 <body>
 	<!-- start header div -->

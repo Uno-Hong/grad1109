@@ -7,6 +7,7 @@
 <style>
   	#form {
 		margin: 100px;
+		font-family: "Dohyeon";
 	}
 	table {
 		padding: 20px;
@@ -27,6 +28,14 @@
 	#btn {
 		font-size: 12px;
 	}
+	
+	@font-face {
+
+      src : url("../css/DoHyeon-Regular.ttf"); 
+      font-family: "Dohyeon" ;
+
+}
+	
 </style>
 <script type="text/javascript" src="../js/joinCheck.js"></script>
 <script type="text/javascript">

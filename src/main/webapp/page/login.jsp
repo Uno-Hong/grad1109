@@ -2,6 +2,14 @@
 <!DOCTYPE html>
 <html>
 <style>
+@font-face {
+
+      src : url("../css/DoHyeon-Regular.ttf"); 
+      font-family: "Dohyeon" ;
+
+}
+
+
 	#form {
 		margin: calc(100vh-100px);
 	}

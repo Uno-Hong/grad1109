@@ -12,6 +12,12 @@
 <title>어디가 좋아? | 고객센터</title>
 
 <style>
+
+@font-face {
+      src : url("../css/DoHyeon-Regular.ttf"); 
+      font-family: "Dohyeon" ;
+}
+
 	table {
 		width: 60%;
 	}

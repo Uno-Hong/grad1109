@@ -30,9 +30,17 @@
   -o-background-size: cover;
   background-size: cover;
 }
-	body {
-		font-family: 'Song Myung', serif;
-	}
+
+@font-face {
+
+      src : url("../css/DoHyeon-Regular.ttf"); 
+      font-family: "Dohyeon" ;
+
+}
+
+
+
+
 
 <style type="text/css">
 
@@ -54,13 +62,109 @@
 
 </head>
 <body >
-   <!-- start header div -->
-   <div id="header_menu">
-       
-      <%@include file="/include/header.jspf"%>
-      
-   </div>
-   <!-- end header div -->
+
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
+            <div class="container" >
+                <a class="navbar-brand" href="Main.jsp" style = "font-family :'Dohyeon'">어디가 좋아?</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'">게시판</a></li>
+                        <li class="nav-item"><a class="nav-link" href="planner.jsp" style = "font-family :'Dohyeon'">플래너</a></li>
+                        <li class="nav-item"><a class="nav-link" href="CsCenter.jsp" style = "font-family :'Dohyeon'">고객센터</a></li>
+                        <%
+					// 로그인이 되어있는 상태
+					if (session.getAttribute("sessionID") == null) {
+					%>
+                        <li class="nav-item"><a class="nav-link" href="join.jsp" style = "font-family :'Dohyeon'">회원가입</a></li>
+   						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#Login" href="#Login" style = "font-family :'Dohyeon'">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'">매니저</a></li>
+						
+                        	<%
+					} else {
+					%>
+					<li class="nav-item"><a class="nav-link" href="logout.jsp" style = "font-family :'Dohyeon'">로그아웃</a></li>
+					<li class="nav-item"><a class="nav-link" href="mypage.jsp" style = "font-family :'Dohyeon'">마이페이지</a></li>
+					<%
+					}
+					%>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+	<!-- Login Modal -->
+	<div class="modal fade" id="Login" tabindex="-1" role="dialog"
+		aria-labelledby="LoginLabel" aria-hidden="true" style = "text-align : center;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content rounded-5 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<!-- <h5 class="modal-title">Modal title</h5> -->
+					<h2 class="fw-bold mb-0" align="center">Login</h2>
+					<button type="button" class="btn-close btn-close-white"
+						data-dismiss="modal"></button>
+				</div>
+				<div class="modal-body p-5 pt-0">
+					<form name="UserLogin" action="loginProc.jsp" method="post"
+						id="form">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control rounded-4" name="loginid"
+								placeholder="아이디를 입력해주세요.">
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control rounded-4"
+								name="loginpw" placeholder="비밀번호를 입력해주세요.">
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary"
+							type="submit">Login</button>
+						<hr class="my-4">
+						<button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4"
+							type="button" onclick="location.href = 'join.jsp'">회원가입
+						</button>
+						<button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4"
+							type="button" onclick="location.href = 'checkPw.jsp'">
+							비밀번호 찾기</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Login Modal -->
+
+	<!-- Manager Login Modal -->
+	<div class="modal fade" id="ManaLogin" tabindex="-1" role="dialog"
+		aria-labelledby="ManaLoginLabel" aria-hidden="true" style = "text-align : center;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content rounded-5 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<!-- <h5 class="modal-title">Modal title</h5> -->
+					<h2 class="fw-bold mb-0">관리자 페이지 접속</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body p-5 pt-0">
+					<form name="ManaLogin" action="ManaLogin.jsp" method="post"
+						id="form">
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control rounded-4" name="pw"
+								placeholder="Password" autofocus>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary"
+							type="submit">Sign up</button>
+						<small class="text-muted">By clicking Sign up, you agree
+							to the terms of use.</small>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Manager Login Modal -->
 
 <header>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -73,19 +177,19 @@
     <div class="carousel-inner">
       <div class="carousel-item active" style="background-image: url('../img/slide_image_1.jpg')">
         <div class="carousel-caption">
-          <h5>맛집</h5>
-          <p>맛집</p>
+          <h5 style = "font-family : 'Dohyeon';">맛집</h5>
+          <p >맛집</p>
         </div>
       </div>
       <div class="carousel-item" style="background-image: url('../img/slide_image_2.jpg')">
         <div class="carousel-caption">
-          <h5>명소</h5>
+          <h5 style = "font-family : 'Dohyeon';">명소</h5>
           <p>명소</p>
         </div>
       </div>
       <div class="carousel-item" style="background-image: url('../img/slide_image_3.jpg')">
         <div class="carousel-caption">
-          <h5>지도</h5>
+          <h5 style = "font-family : 'Dohyeon';">지도</h5>
           <p>지도</p>
         </div>
       </div>
@@ -106,8 +210,8 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">좋아요 순</h2>
-                    <h3 class="section-subheading text-muted">맛집·명소</h3>
+                    <h2 class="section-heading text-uppercase" style = "font-family : 'Dohyeon';">맛집·명소</h2>
+                    <h3 class="section-subheading text-muted" style = "font-family : 'Dohyeon';">좋아요 순</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -120,8 +224,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/1.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소1</div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">명소1</div>
                             </div>
                         </div>
                     </div>
@@ -135,8 +239,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/2.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소2</div>
+                                <div class="portfolio-caption-subheading text-muted style = "font-family : 'Dohyeon';"">명소2</div>
                             </div>
                         </div>
                     </div>
@@ -150,8 +254,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소3</div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">명소3</div>
                             </div>
                         </div>
                     </div>
@@ -165,8 +269,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/4.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집1</div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집1</div>
                             </div>
                         </div>
                     </div>
@@ -180,8 +284,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/5.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집2</div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집2</div>
                             </div>
                         </div>
                     </div>
@@ -195,8 +299,8 @@
                                 <img class="img-fluid" src="/grad/assets/img/portfolio/6.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집3</div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집3</div>
                             </div>
                         </div>
                     </div>
@@ -215,9 +319,8 @@
           <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="grad/js/scripts.js"></script>
+        <script src="../js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-     
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
      <!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
