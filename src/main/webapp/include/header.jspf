@@ -62,6 +62,7 @@
 					%>
                         <li class="nav-item"><a class="nav-link" href="join.jsp" style = "font-family :'Dohyeon'">회원가입</a></li>
    						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#Login" href="#Login" style = "font-family :'Dohyeon'">로그인</a></li>
+   						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'">매니저</a></li>
                         
 						
                         	<%
@@ -73,10 +74,10 @@
 					}
 					%>
 					   <%
-					// 로그인이 되어있는 상태
 					if (session.getAttribute("sessionID") == "admin") {
 					%>
-						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'">매니저</a></li>
+						<!-- <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'">매니저</a></li> 
+						 -->
 						<%
 					} 
 					%>

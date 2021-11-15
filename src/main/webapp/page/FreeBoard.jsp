@@ -12,12 +12,6 @@
 <title>어디가 좋아? | 자유게시판</title>
 
 <style>
-
-@font-face {
-      src : url("../css/DoHyeon-Regular.ttf"); 
-      font-family: "Dohyeon" ;
-}
-
 	table {
 		width: 60%;
 	}
