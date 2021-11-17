@@ -269,10 +269,16 @@
                                             <th>이름</th>
                                             <th>주소</th>
                                             <th>전화번호</th>
-                                            <th>위도</th>
-                                            <th>경도</th>
+                                            <th>위도/경도</th>
                                             <th>명소/맛집</th>
-                                            <td></td>
+                                            <th>시</th>
+                                            <th>구</th>
+                                            <th>동</th>
+                                            <th>번지</th>
+                                            <th>영업시간</th>
+                                            <th>홈페이지</th>
+                                            <th>태그</th>
+                                            <th>삭제</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -281,10 +287,16 @@
                                             <th>이름</th>
                                             <th>주소</th>
                                             <th>전화번호</th>
-                                            <th>위도</th>
-                                            <th>경도</th>
+                                            <th>위도/경도</th>
                                             <th>명소/맛집</th>
-                                            <td></td>
+                                            <th>시</th>
+                                            <th>구</th>
+                                            <th>동</th>
+                                            <th>번지</th>
+                                            <th>영업시간</th>
+                                            <th>홈페이지</th>
+                                            <th>태그</th>
+                                            <th>삭제</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -294,20 +306,19 @@
                                   				<td>${list.place_name}</td>
                                   				<td>${list.place_addr}</td>
                                   				<td>${list.place_pn}</td>
-                                  				<%
-	                                  				String latlng = lists.get(0).getPlace_latlng();
-	                                  				
-	                                  				String[] s_latlng = latlng.split(", ");
-	                                  				String place_lat = s_latlng[0];
-	                                  				String place_lng = s_latlng[1];
-                                  				%>
-                                  				<td><%= place_lat%></td>
-                                  				<td><%= place_lng%></td>
+                                  				<td>${list.place_latlng}</td>
                                   				<td>${list.place_type}</td>
+                                  				<td>${list.place_si}</td>
+                                  				<td>${list.place_gu}</td>
+                                  				<td>${list.place_dong}</td>
+                                  				<td>${list.place_bungi}</td>
+                                  				<td>${list.place_openhour}</td>
+                                  				<td>${list.place_homepage}</td>
+                                  				<td>${list.place_tag}</td>
                                   				<td>
                                   				<button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#DBModal" 
-                                  				data-id="${list.place_id}" data-name="${list.place_name}" data-addr="${list.place_addr}" data-pn="${list.place_pn}" data-lng="<%= place_lng%>"  data-type="${list.place_type}" 
-                                  				onclick="ToModal('${list.place_id}', '${list.place_name}', '${list.place_addr}', '${list.place_pn}', '<%= place_lng%>', '<%= place_lng%>', ${list.place_type}');">
+                                  				data-id="${list.place_id}" data-name="${list.place_name}" data-addr="${list.place_addr}" data-pn="${list.place_pn}" data-latlng="${list.place_latlng}"  data-type="${list.place_type}" data-si="${list.place_si}" data-gu="${list.place_gu}" data-dong="${list.place_dong}" data-bungi="${list.place_bungi}" data-openhour="${list.place_openhour}" data-homepage="${list.place_homepage}" data-tag="${list.place_tag}"
+                                  				onclick="ToModal('${list.place_id}', '${list.place_name}', '${list.place_addr}', '${list.place_pn}', '${list.place_latlng}', '${list.place_type}', '${list.place_si}', '${list.place_gu}', '${list.place_dong}', '${list.place_bungi}', '${list.place_openhour}', '${list.place_homepage}', '${list.place_tag}' );">
                                   				<i class="fas fa-edit fa-sm text-white-50"></i> </button>
                                   				</td>
                                   			</tr>
@@ -366,35 +377,127 @@
         </div>
     </div>
 
+
+
+  <!-- DB Modal-->
+    <div class="modal fade" id="DBModal" tabindex="-1" role="dialog" aria-labelledby="MyDBModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document" style ="width:auto; display:table;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MyDBModal">갱신</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+                <div class="table-responsive">
+                                <table class="table table-borderless" id="dataTableModal" width="100%" cellspacing="0" style ="text-align:center;">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>이름</th>
+                                            <th>주소</th>
+                                            <th>전화번호</th>
+                                            <th>위도/경도</th>
+                                            <th>맛집/명소</th>
+                                       </tr>
+                                     </thead>
+                                     <tbody>
+                                    		 <tr>
+                                  				<td><input type="text" id="place_id" name ="place_id" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_name" name ="place_name" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_addr" name ="place_addr" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_pn" name ="place_pn" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_latlng" name ="place_latlng" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_type" name ="place_type" style = "text-align:center; border:none;"></input></td>
+                                  			</tr>
+                                  	 </tbody>
+                                     <thead>
+                                            <tr>
+                                            <th>시</th>
+                                            <th>구</th>
+                                            <th>동</th>
+                                            <th>번지</th>
+                                            <th>영업시간</th>
+                                            <th>홈페이지</th>
+                                            <th>태그</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                  				<td><input type="text" id="place_si" name ="place_si" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_gu" name ="place_gu" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_dong" name ="place_dong" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_bungi" name ="place_bungi" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_openhour" name ="place_openhour" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_homepage" name ="place_homepage" style = "text-align:center; border:none;"></input></td>
+                                  				<td><input type="text" id="place_tag" name ="place_tag" style = "text-align:center; border:none;"></input></td>
+                                  	</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </div>
+                <div class="modal-footer">
+                	<button class="btn btn-primary" type="submit" formaction="managePlaceUpdateProc.jsp">수정</button>
+                    <button class="btn btn-secondary" type="submit" formaction="managePlaceDeleteProc.jsp">삭제</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 <script>
 
-    var user_id="";
-    var user_pw="";
-    var user_name="";
-    var user_phone="";
-    var user_reg="";
-    var user_man="";
+    var place_id="";
+    var place_name="";
+    var place_addr="";
+    var place_pn="";
+    var place_latlng="";
+    var place_type="";
+    var place_si="";
+    var place_gu="";
+    var place_dong="";
+    var place_bungi="";
+    var place_openhour="";
+    var place_homepage="";
+    var place_tag="";
     
     $(document).ready(function() {     
         $('#DBModal').on('show.bs.modal', function(event) {          
-        	user_id = $(event.relatedTarget).data('id');
-        	user_pw = $(event.relatedTarget).data('pw');
-        	user_name = $(event.relatedTarget).data('name');
-        	user_phone = $(event.relatedTarget).data('phone');
-        	user_reg = $(event.relatedTarget).data('reg');
-        	user_man = $(event.relatedTarget).data('man');
+        	place_id = $(event.relatedTarget).data('id');
+        	place_name = $(event.relatedTarget).data('name');
+        	place_addr = $(event.relatedTarget).data('addr');
+        	place_pn = $(event.relatedTarget).data('pn');
+        	place_latlng = $(event.relatedTarget).data('latlng');
+        	place_type = $(event.relatedTarget).data('type');
+        	place_si = $(event.relatedTarget).data('si');
+        	place_gu = $(event.relatedTarget).data('gu');
+        	place_dong = $(event.relatedTarget).data('dong');
+        	place_bungi = $(event.relatedTarget).data('bungi');
+        	place_openhour = $(event.relatedTarget).data('openhour');
+        	place_homepage = $(event.relatedTarget).data('homepage');
+        	place_tag = $(event.relatedTarget).data('tag');
         });
     });
     
-    function ToModal(id, pw, name, phone, reg, man){
+    function ToModal(id, name, addr, pn, latlng, type, si, gu, dong, bungi, openhour, homepage, tag){
 
-    	$('#hidden_user_id').val(id)
-    	$('#user_id').val(id)
-    	$('#user_pw').val(pw)
-    	$('#user_name').val(name)
-    	$('#user_phone').val(phone)
-    	$('#user_reg').val(reg)
-    	$('#user_man').val(man)
+    	$('#place_id').val(id)
+    	$('#place_name').val(name)
+    	$('#place_addr').val(addr)
+    	$('#place_pn').val(pn)
+    	$('#place_latlng').val(latlng)
+    	$('#place_type').val(type)
+    	$('#place_si').val(si)
+    	$('#place_gu').val(gu)
+    	$('#place_dong').val(dong)
+    	$('#place_bungi').val(bungi)
+    	$('#place_openhour').val(openhour)
+    	$('#place_homepage').val(homepage)
+    	$('#place_tag').val(tag)
 
     	}
     

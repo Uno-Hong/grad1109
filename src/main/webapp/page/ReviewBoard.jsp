@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>키워드로 장소검색하고 목록으로 표출하기</title>
+<title>어디가 좋아? | 장소검색</title>
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;
@@ -219,7 +219,7 @@
 
 	<div class="map_wrap">
 		<div id="map"
-			style="width: 100%; height: 100%; position: relative; overflow: hidden; "></div>
+			style="width: 100%; height: 100%; position: relative; overflow: hidden; margin-top : 4.6rem;"></div>
 
 		<div id="menu_wrap" class="bg_white">
 			<div class="option">
@@ -283,10 +283,10 @@
 			var sido = document.getElementById('sido').value;
 			var gugun = document.getElementById('gugun').value;
 
-			if (!sido && !gugun) {
-				alert('시/도, 구/군을 선택해주세요.');
-				return false;
-			}
+		//	if (!sido && !gugun) {
+			//	alert('시/도, 구/군을 선택해주세요.');
+		//		return false;
+			//}
 
 			// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
 			ps.keywordSearch(gugun, placesSearchCB);

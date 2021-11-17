@@ -49,6 +49,13 @@
 	    	placedto.setPlace_pn(multi.getParameter("place_pn"));
 	    	placedto.setPlace_latlng(multi.getParameter("place_latlng"));
 	    	placedto.setPlace_type(multi.getParameter("hidden_place_type"));
+	    	placedto.setPlace_si(multi.getParameter("place_si"));
+	    	placedto.setPlace_gu(multi.getParameter("place_gu"));
+	    	placedto.setPlace_dong(multi.getParameter("place_dong"));
+	    	placedto.setPlace_bungi(multi.getParameter("place_bungi"));
+	    	placedto.setPlace_openhour(multi.getParameter("place_openhour"));
+	    	placedto.setPlace_homepage(multi.getParameter("place_homepage"));
+	    	placedto.setPlace_tag(multi.getParameter("place_tag"));
 	    	
 	    	if(f != null)
 	    	{

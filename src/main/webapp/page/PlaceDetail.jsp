@@ -51,14 +51,14 @@
 			</div>
 			<div class="top_info border-primary"
 				style="margin: -50px auto 0; box-shadow: 0px 1px 1px 1px lightgray; border: 0px solid; z-index: 10; padding: 20px; position: relative; background: white; margin-left: 30px; margin-right: 30px;">
-				<h2 align="center"><%=plist.get(0).getPlace_name()%></h2>
+				<h2 align="center" style = "font-family : 'Dohyeon';"><%=plist.get(0).getPlace_name()%></h2>
 				<div class="map" style="" align="center">
-					<a href="test1.jsp?place_name='<%=plist.get(0).getPlace_name() %>'?place_lat='<%= place_lat%>'?place_lng='<%= place_lng%>'" class="">
+					<a href="ReviewBoard.jsp?place_name='<%=plist.get(0).getPlace_name() %>'?place_lat='<%= place_lat%>'?place_lng='<%= place_lng%>'" class="">
 					<span class="ico_comm ico_map">지도</span>지도</a>
 				</div>
 			</div>
 			<div class="details_placeinfo">
-				<h3 class="tit_subject">상세정보</h3>
+				<h3 class="tit_subject" style = "font-family : 'Dohyeon';">상세정보</h3>
 				<div class="placeinfo_default">
 					<h4 class="tit_detail">
 						<span class="ico_comm ico_address">위치</span>
@@ -114,7 +114,7 @@
 		</div>
 		<!-- 후기 작성 -->
 		<div class="" style="box-shadow: 0px 1px 1px 1px lightgray; position: relative; padding: 10px; padding-left: 50px; padding-right: 50px; margin-left: 30px; margin-right: 30px; ">
-		    <h3 class="tit_subject">후기 작성</h3>
+		    <h3 class="tit_subject" style = "font-family : 'Dohyeon';">후기 작성</h3>
 		    <div class="">
 		       <button class="btn btn-primary" style="font-size: 11px;">후기 작성하기</button>
 		    </div>

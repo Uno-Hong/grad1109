@@ -1,10 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("UTF-8"); %>
 
-<%@ page import="java.io.*" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <jsp:useBean id="userName" class="grad.UserDAO"/>
 <jsp:useBean id="userBean" class="grad.UserDTO"/>
 <jsp:setProperty property="*" name="userBean"/>
@@ -55,7 +52,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin <sup>관리자</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -76,8 +73,8 @@
             <div class="sidebar-heading">
                 관리
             </div>
-
-            <!-- Nav Item --->
+            
+			<!-- Nav Item --->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -114,7 +111,7 @@
             </li>
             
             <!-- Nav Item --->
-            <!-- 
+         	<!-- 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRest"
                     aria-expanded="true" aria-controls="collapseRest">
@@ -133,7 +130,7 @@
                 </div>
             </li>
 			 -->
-
+			 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             
@@ -150,7 +147,6 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>고객센터</span></a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -243,100 +239,8 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-	 				<div class="card shadow mb-4">
-	 					<form enctype="multipart/form-data" method="post">
-	                        <div class="card-body">
-	               					<div class="table-responsive">
-	                              	  <table class="table table-borderless" id="PlaceTable" width="100%" cellspacing="0" style ="text-align:center;">
-	                                    <thead>
-	                                        <tr>
-	                                            <th>명소 이름</th>
-	                                            <th>주소</th>
-	                                            <th>전화번호</th>
-	                                            <th>위도/경도</th>
-	                                            <th>시</th>
-	                                            <th>구</th>
-	                                            <th>동</th>
-	                                            <th>번지</th>
-	                                            <th>영업시간</th>
-	                                            <th>홈페이지</th>
-	                                            <th>태그</th>
-	                                            <th>이미지</th>
-	                                        </tr>
-	                                    </thead>
-	                                    <tbody>
-	                                  			<tr>
-	                                  				<td><input type="text" id="place_name" name ="place_name" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_addr" name ="place_addr" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_pn" name ="place_pn" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_latlng" name ="place_latlng" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_si" name ="place_si" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_gu" name ="place_gu" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_dong" name ="place_dong" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_bungi" name ="place_bungi" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_openhour" name ="place_openhour" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_homepage" name ="place_homepage" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_tag" name ="place_tag" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="file" id="place_etc" name ="place_etc" style = "text-align:center; border:none;" ></input></td>
-	                                  			</tr>
-	                                    </tbody>
-	                                </table>
-	                                <input id ="hidden_user_id" name= "hidden_user_id" type ="hidden"/>
-	                                <input id ="hidden_place_type" name= "hidden_place_type" value = "0" type ="hidden"/>
-	                            	</div>
-	                            </div>
-	                            <div class ="card-footer" style ="text-align:center;">
-	                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" formaction="managePlaceInsertProc.jsp">명소 등록</button>
-								</div>
-	                     	</form>
-	                     	
-	                     	<form enctype="multipart/form-data" method="post">
-	                        <div class="card-body">
-	               					<div class="table-responsive">
-	                              	  <table class="table table-borderless" id="RestTable" width="100%" cellspacing="0" style ="text-align:center;">
-	                                    <thead>
-	                                        <tr>
-	                                            <th>맛집 이름</th>
-	                                            <th>주소</th>
-	                                            <th>전화번호</th>
-	                                            <th>위도/경도</th>
-	                                            <th>시</th>
-	                                            <th>구</th>
-	                                            <th>동</th>
-	                                            <th>번지</th>
-	                                            <th>영업시간</th>
-	                                            <th>홈페이지</th>
-	                                            <th>태그</th>
-	                                            <th>이미지</th>
-	                                        </tr>
-	                                    </thead>
-	                                    <tbody>
-	                                  			<tr>
-	                                  				<td><input type="text" id="place_name" name ="place_name" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_addr" name ="place_addr" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_pn" name ="place_pn" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_latlng" name ="place_latlng" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_si" name ="place_si" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_gu" name ="place_gu" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_dong" name ="place_dong" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_bungi" name ="place_bungi" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_openhour" name ="place_openhour" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_homepage" name ="place_homepage" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="text" id="place_tag" name ="place_tag" style = "text-align:center; border:none;"></input></td>
-	                                  				<td><input type="file" id="place_etc" name ="place_etc" style = "text-align:center; border:none;" ></input></td>
-	                                  			</tr>
-	                                    </tbody>
-	                                </table>
-	                                <input id ="hidden_user_id" name= "hidden_user_id" type ="hidden"/>
-	                                <input id ="hidden_place_type" name= "hidden_place_type" value = "1" type ="hidden"/>
-	                            	</div>
-	                            </div>
-	                            <div class ="card-footer" style ="text-align:center;">
-	                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" formaction="managePlaceInsertProc.jsp">맛집 등록</button>
-								</div>
-	                     	</form>
-						</div>
-					</div>
+					<img  src="/grad/img/service_ready.png" alt="서비스 준비중입니다." style="width: auto; height: auto; " align="center">
+                 
                 </div>
                 <!-- /.container-fluid -->
 
@@ -402,5 +306,7 @@
     <script src="../../js/demo/datatables-demo.js"></script>
 
 </body>
+
+
 
 </html>

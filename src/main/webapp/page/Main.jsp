@@ -80,9 +80,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'; color: black;">커뮤니티</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'; color: black;">커뮤니티</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'; color: black;">자유게시판</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ReviewBoard.jsp" style = "font-family :'Dohyeon'; color: black;">후기게시판</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ReviewBoard.jsp" style = "font-family :'Dohyeon'; color: black;">장소검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="planner.jsp" style = "font-family :'Dohyeon'; color: black;">플래너</a></li>
                         <li class="nav-item"><a class="nav-link" href="CsCenter.jsp" style = "font-family :'Dohyeon'; color: black;">고객센터</a></li>
                         <%
@@ -228,7 +228,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/양재천.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/양재천.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=양재천" style="color: black; text-decoration: none;">양재천</a></div>
@@ -243,9 +243,9 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/서울숲 은행나무길.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/서울숲 은행나무길.jpg" alt="..." />
                             </a>
-                            <div class="portfolio-caption">함목몽돌해변
+                            <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=서울숲 은행나무길" style="color: black; text-decoration: none;">서울숲 은행나무길</a></div>
                                 <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';"">#데이트코스 #산책로 #힐링</div>
                             </div>
@@ -258,7 +258,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/익선동 한옥거리.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/익선동 한옥거리.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=익선동 한옥거리" style="color: black; text-decoration: none;">익선동 한옥거리</a></div>
@@ -273,7 +273,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/카멜리아힐.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/카멜리아힐.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=카멜리아힐" style="color: black; text-decoration: none;">카멜리아힐</a></div>
@@ -288,7 +288,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/포천 아트밸리.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/포천 아트밸리.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=포천 아트밸리" style="color: black; text-decoration: none;">포천 아트밸리</a></div>
@@ -303,7 +303,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/placeimg/함목몽돌해변.jpg" alt="..." />
+                                <img class="img-fluid" src="../placeimg/함목몽돌해변.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=함목몽돌해변" style="color: black; text-decoration: none;">함목몽돌해변</a></div>

@@ -4,17 +4,26 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class FreeDAO {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String sql = null;
+	String dbId = "root";
+	String dbPass = "Hh33906^";
+	String DBName = "gjob";
+//	String dbPass = "1234";
+//	String DBName = "wdyl";
+	String PortNo = "3306";
+	String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
+	String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
 	
-	//
+	
 	public String getDate() {
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -48,10 +57,6 @@ public class FreeDAO {
 		String sql = null;
 		
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -84,9 +89,6 @@ public class FreeDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -126,9 +128,6 @@ public class FreeDAO {
 		String sql = null;
 		ArrayList<FreeDTO> list = new ArrayList<FreeDTO>();
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -162,9 +161,6 @@ public class FreeDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -190,9 +186,6 @@ public class FreeDAO {
 		String sql = null;
 		int count = 0;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -227,10 +220,6 @@ public class FreeDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -254,9 +243,6 @@ public class FreeDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -280,9 +266,6 @@ public class FreeDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/gjob?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			String dbId = "root";
-			String dbPass = "Hh33906^";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);

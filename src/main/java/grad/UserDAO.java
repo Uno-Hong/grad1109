@@ -6,6 +6,19 @@ import java.util.ArrayList;
 
 public class UserDAO {
 	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String sql = null;
+	String dbId = "root";
+	String dbPass = "Hh33906^";
+	String DBName = "gjob";
+//	String dbPass = "1234";
+//	String DBName = "wdyl";
+	String PortNo = "3306";
+	String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
+	String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
+	
 	//濡쒓렇�씤
 			public ArrayList<UserDTO> AllUserSelect () {
 				ArrayList<UserDTO> lists = new ArrayList<UserDTO>();
@@ -15,14 +28,6 @@ public class UserDAO {
 				String sql = null;
 				
 				try{
-					String dbId = "root";
-					String dbPass = "Hh33906^";
-					String PortNo = "3306";
-					String DBName = "gjob";
-					String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-					
-					String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-					
 					Class.forName("com.mysql.jdbc.Driver");
 					conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 					conn.setAutoCommit(false);
@@ -65,14 +70,6 @@ public class UserDAO {
 			boolean flag = false;
 			
 			try{
-				String dbId = "root";
-				String dbPass = "Hh33906^";
-				String PortNo = "3306";
-				String DBName = "gjob";
-				String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-				
-				String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-				
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 				conn.setAutoCommit(false);
@@ -103,14 +100,6 @@ public class UserDAO {
 		boolean flag = false;
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -140,15 +129,6 @@ public class UserDAO {
 		boolean flag = false;
 		
 		try{
-			
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
@@ -188,14 +168,6 @@ public class UserDAO {
 		boolean flag = false;
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			//conn.setAutoCommit(false);
@@ -232,14 +204,6 @@ public class UserDAO {
 		String pw = "";
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -271,14 +235,6 @@ public class UserDAO {
 		boolean flag = false;
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -311,14 +267,6 @@ public class UserDAO {
 		String id = "";
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -352,14 +300,6 @@ public class UserDAO {
 		String pw = "";
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -393,14 +333,6 @@ public class UserDAO {
 		String name = "";
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);
@@ -432,14 +364,6 @@ public class UserDAO {
 		boolean flag = false;
 		
 		try{
-			String dbId = "root";
-			String dbPass = "Hh33906^";
-			String PortNo = "3306";
-			String DBName = "gjob";
-			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
-			
-			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
-			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 			conn.setAutoCommit(false);

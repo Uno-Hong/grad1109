@@ -11,6 +11,6 @@
 		<%@ include file="/include/header.jspf"%>
 	</div>
 	<!-- end header div -->
-	<img src="/grad/img/service_ready.png" alt="서비스 준비중입니다." style="width: auto; height: auto; " align="center">
+	<img style = "margin : 10vh;" src="/grad/img/service_ready.png" alt="서비스 준비중입니다." style="width: auto; height: auto; " align="center">
 </body>
 </html>
