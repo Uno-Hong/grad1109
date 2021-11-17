@@ -4,7 +4,6 @@
 <%@ page import="java.sql.*" %>
 <jsp:useBean id="free" class="grad.FreeDTO" />
 <jsp:setProperty property="*" name="free"/>
-<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>

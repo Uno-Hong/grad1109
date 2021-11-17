@@ -1,3 +1,6 @@
+<%@page import="grad.PlaceDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="grad.PlaceDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -39,10 +42,14 @@
 }
 
 
-
-
-
-<style type="text/css">
+.portfolio-item {
+	overflow: hidden;
+}
+.img-fluid {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
 
 </style>
@@ -63,34 +70,34 @@
 </head>
 <body >
 
-
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: rgba(255, 255, 255, 0.8);">
             <div class="container" >
-                <a class="navbar-brand" href="Main.jsp" style = "font-family :'Dohyeon'">어디가 좋아?</a>
+                <a class="navbar-brand" href="Main.jsp" style = "font-family :'Dohyeon'; text-shadow: 2px 2px 0 black;">어디가 좋아?</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'">커뮤니티</a></li>
-                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'">게시판</a></li>
-                        <li class="nav-item"><a class="nav-link" href="planner.jsp" style = "font-family :'Dohyeon'">플래너</a></li>
-                        <li class="nav-item"><a class="nav-link" href="CsCenter.jsp" style = "font-family :'Dohyeon'">고객센터</a></li>
+                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'; color: black;">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link" href="FreeBoard.jsp" style = "font-family :'Dohyeon'; color: black;">자유게시판</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ReviewBoard.jsp" style = "font-family :'Dohyeon'; color: black;">후기게시판</a></li>
+                        <li class="nav-item"><a class="nav-link" href="planner.jsp" style = "font-family :'Dohyeon'; color: black;">플래너</a></li>
+                        <li class="nav-item"><a class="nav-link" href="CsCenter.jsp" style = "font-family :'Dohyeon'; color: black;">고객센터</a></li>
                         <%
 					// 로그인이 되어있는 상태
 					if (session.getAttribute("sessionID") == null) {
 					%>
-                        <li class="nav-item"><a class="nav-link" href="join.jsp" style = "font-family :'Dohyeon'">회원가입</a></li>
-   						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#Login" href="#Login" style = "font-family :'Dohyeon'">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'">매니저</a></li>
+   						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#Login" href="#Login" style = "font-family :'Dohyeon'; color: black;">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="join.jsp" style = "font-family :'Dohyeon'; color: black;">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-target="#ManaLogin" href="#ManaLogin" style = "font-family :'Dohyeon'; color: black;">매니저</a></li>
 						
                         	<%
 					} else {
 					%>
-					<li class="nav-item"><a class="nav-link" href="logout.jsp" style = "font-family :'Dohyeon'">로그아웃</a></li>
-					<li class="nav-item"><a class="nav-link" href="mypage.jsp" style = "font-family :'Dohyeon'">마이페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.jsp" style = "font-family :'Dohyeon'; color: black;">로그아웃</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="mypage.jsp" style = "font-family :'Dohyeon'; color: black;">마이페이지</a></li> -->
 					<%
 					}
 					%>
@@ -175,19 +182,19 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('../img/slide_image_1.jpg')">
+      <div class="carousel-item active" style="background-image: url('../img/Main_slide_image_1.jpg')">
         <div class="carousel-caption">
           <h5 style = "font-family : 'Dohyeon';">맛집</h5>
           <p >맛집</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('../img/slide_image_2.jpg')">
+      <div class="carousel-item" style="background-image: url('../img/Main_slide_image_2.jpg')">
         <div class="carousel-caption">
           <h5 style = "font-family : 'Dohyeon';">명소</h5>
           <p>명소</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('../img/slide_image_3.jpg')">
+      <div class="carousel-item" style="background-image: url('../img/Main_slide_image_3.jpg')">
         <div class="carousel-caption">
           <h5 style = "font-family : 'Dohyeon';">지도</h5>
           <p>지도</p>
@@ -210,97 +217,97 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase" style = "font-family : 'Dohyeon';">맛집·명소</h2>
-                    <h3 class="section-subheading text-muted" style = "font-family : 'Dohyeon';">좋아요 순</h3>
+                    <h2 class="section-heading text-uppercase" style = "font-family : 'Dohyeon';">추천</h2>
+                    <h3 class="section-subheading text-muted" style = "font-family : 'Dohyeon';">요즘 hot한 지역을 추천합니다!</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=양재천">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/1.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/양재천.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소1</div>
-                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">명소1</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=양재천" style="color: black; text-decoration: none;">양재천</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">#걷기좋은 #단풍명소 #핑크뮬리명소</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=서울숲 은행나무길">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/2.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/서울숲 은행나무길.jpg" alt="..." />
                             </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소2</div>
-                                <div class="portfolio-caption-subheading text-muted style = "font-family : 'Dohyeon';"">명소2</div>
+                            <div class="portfolio-caption">함목몽돌해변
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=서울숲 은행나무길" style="color: black; text-decoration: none;">서울숲 은행나무길</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';"">#데이트코스 #산책로 #힐링</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=익선동 한옥거리">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/3.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/익선동 한옥거리.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">명소3</div>
-                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">명소3</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=익선동 한옥거리" style="color: black; text-decoration: none;">익선동 한옥거리</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">#요즘핫한 #데이트코스</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                         <!-- Portfolio item 4-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=카멜리아힐">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/4.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/카멜리아힐.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집1</div>
-                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집1</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=카멜리아힐" style="color: black; text-decoration: none;">카멜리아힐</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">#제주대표 #핑크뮬리명소</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <!-- Portfolio item 5-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=포천 아트밸리">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/5.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/포천 아트밸리.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집2</div>
-                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집2</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=포천 아트밸리" style="color: black; text-decoration: none;">포천 아트밸리</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">#단풍명소 #문화예술공간</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 6-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                            <a class="portfolio-link" href="PlaceDetail.jsp?place_name=함목몽돌해변">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
-                                <img class="img-fluid" src="/grad/assets/img/portfolio/6.jpg" alt="..." />
+                                <img class="img-fluid" src="/grad/placeimg/함목몽돌해변.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';">맛집3</div>
-                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">맛집3</div>
+                                <div class="portfolio-caption-heading" style = "font-family : 'Dohyeon';"><a href="PlaceDetail.jsp?place_name=함목몽돌해변" style="color: black; text-decoration: none;">함목몽돌해변</a></div>
+                                <div class="portfolio-caption-subheading text-muted" style = "font-family : 'Dohyeon';">#물놀이 #바다구경 #파도멍</div>
                             </div>
                         </div>
                     </div>

@@ -253,8 +253,8 @@
 	                                            <th>명소 이름</th>
 	                                            <th>주소</th>
 	                                            <th>전화번호</th>
-	                                            <th>경도</th>
 	                                            <th>위도</th>
+	                                            <th>경도</th>
 	                                            <th>이미지</th>
 	                                        </tr>
 	                                    </thead>
@@ -287,8 +287,8 @@
 	                                            <th>맛집 이름</th>
 	                                            <th>주소</th>
 	                                            <th>전화번호</th>
-	                                            <th>경도</th>
 	                                            <th>위도</th>
+	                                            <th>경도</th>
 	                                            <th>이미지</th>
 	                                        </tr>
 	                                    </thead>

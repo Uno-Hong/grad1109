@@ -269,8 +269,8 @@
                                             <th>이름</th>
                                             <th>주소</th>
                                             <th>전화번호</th>
-                                            <th>경도</th>
                                             <th>위도</th>
+                                            <th>경도</th>
                                             <th>명소/맛집</th>
                                             <td></td>
                                         </tr>
@@ -281,8 +281,8 @@
                                             <th>이름</th>
                                             <th>주소</th>
                                             <th>전화번호</th>
-                                            <th>경도</th>
                                             <th>위도</th>
+                                            <th>경도</th>
                                             <th>명소/맛집</th>
                                             <td></td>
                                         </tr>
@@ -294,13 +294,20 @@
                                   				<td>${list.place_name}</td>
                                   				<td>${list.place_addr}</td>
                                   				<td>${list.place_pn}</td>
-                                  				<td>${list.place_lng}</td>
-                                  				<td>${list.place_lat}</td>
+                                  				<%
+	                                  				String latlng = lists.get(0).getPlace_latlng();
+	                                  				
+	                                  				String[] s_latlng = latlng.split(", ");
+	                                  				String place_lat = s_latlng[0];
+	                                  				String place_lng = s_latlng[1];
+                                  				%>
+                                  				<td><%= place_lat%></td>
+                                  				<td><%= place_lng%></td>
                                   				<td>${list.place_type}</td>
                                   				<td>
                                   				<button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#DBModal" 
-                                  				data-id="${list.place_id}" data-name="${list.place_name}" data-addr="${list.place_addr}" data-pn="${list.place_pn}" data-lng="${list.place_lng}"  data-type="${list.place_type}" 
-                                  				onclick="ToModal('${list.place_id}', '${list.place_name}', '${list.place_addr}', '${list.place_pn}', '${list.place_lng}', '${list.place_lng}', ${list.place_type}');">
+                                  				data-id="${list.place_id}" data-name="${list.place_name}" data-addr="${list.place_addr}" data-pn="${list.place_pn}" data-lng="<%= place_lng%>"  data-type="${list.place_type}" 
+                                  				onclick="ToModal('${list.place_id}', '${list.place_name}', '${list.place_addr}', '${list.place_pn}', '<%= place_lng%>', '<%= place_lng%>', ${list.place_type}');">
                                   				<i class="fas fa-edit fa-sm text-white-50"></i> </button>
                                   				</td>
                                   			</tr>

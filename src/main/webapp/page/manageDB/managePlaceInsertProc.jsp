@@ -47,9 +47,8 @@
 	        placedto.setPlace_name(multi.getParameter("place_name"));
 	    	placedto.setPlace_addr(multi.getParameter("place_addr"));
 	    	placedto.setPlace_pn(multi.getParameter("place_pn"));
-	    	placedto.setPlace_lng(Float.parseFloat(multi.getParameter("place_lng")));
-	    	placedto.setPlace_lat(Float.parseFloat(multi.getParameter("place_lat")));
-	    	placedto.setPlace_type(Integer.parseInt(multi.getParameter("hidden_place_type")));
+	    	placedto.setPlace_latlng(multi.getParameter("place_latlng"));
+	    	placedto.setPlace_type(multi.getParameter("hidden_place_type"));
 	    	
 	    	if(f != null)
 	    	{

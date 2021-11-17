@@ -4,21 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <title>플래너</title>
-<style>
-@font-face {
-      src : url("../css/DoHyeon-Regular.ttf"); 
-      font-family: "Dohyeon" ;
-}
-</style>
-
 </head>
-<body>
+<body style="text-align: center">
 	<!-- start header div -->
 	<div id="header_menu">
 		<%@ include file="/include/header.jspf"%>
 	</div>
-	&nbsp&nbsp&nbsp&nbsp
 	<!-- end header div -->
-	플래너
+	<img src="/grad/img/service_ready.png" alt="서비스 준비중입니다." style="width: auto; height: auto; " align="center">
 </body>
 </html>

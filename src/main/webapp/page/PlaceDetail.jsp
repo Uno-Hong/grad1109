@@ -1,3 +1,6 @@
+<%@page import="grad.PlaceDAO"%>
+<%@page import="grad.PlaceDTO"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- 페이지마다 여기부터 헤더 스타일, 헤더 붙여넣기 -->
@@ -7,12 +10,26 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+	
 <!-- 페이지마다 여기까지 헤더 스타일, 헤더 붙여넣기 -->
+<%
+	String place_name = request.getParameter("place_name");
+	PlaceDAO placeDAO = new PlaceDAO();
+	ArrayList<PlaceDTO> plist = placeDAO.PlaceInfo(place_name);
+	
+	String latlng = plist.get(0).getPlace_latlng();
+	
+	String[] s_latlng = latlng.split(", ");
+	String place_lat = s_latlng[0];
+	String place_lng = s_latlng[1];
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="twitter:image" content="http://map3.daum.net/staticmap/og?type=place&amp;srs=wcongnamul&amp;size=400x200&amp;m=429468%2C1130912">
 <link rel="stylesheet" type="text/css"
 	href="//t1.daumcdn.net/kakaomapweb/place/jscss/pc.af992913.css">
 <link
@@ -29,15 +46,15 @@
 	<div class="container" style="background: white; padding-top: 15px; padding-bottom: 15px;">
 		<div class="">
 			<div class="place_photo" style="">
-				<img alt="장소 사진" src="/grad/img/Main_slide_image_1.jpg" width="100%"
-					height="300px;">
+				<img alt="장소 사진" src="/grad/img/bg_nodata.png" width="100%"
+					height="auto">
 			</div>
 			<div class="top_info border-primary"
 				style="margin: -50px auto 0; box-shadow: 0px 1px 1px 1px lightgray; border: 0px solid; z-index: 10; padding: 20px; position: relative; background: white; margin-left: 30px; margin-right: 30px;">
-				<h2 align="center">맛집 이름</h2>
+				<h2 align="center"><%=plist.get(0).getPlace_name()%></h2>
 				<div class="map" style="" align="center">
-					<a href="" class=""><span
-						class="glyphicon glyphicon-map-marker"></span>지도</a>
+					<a href="test1.jsp?place_name='<%=plist.get(0).getPlace_name() %>'?place_lat='<%= place_lat%>'?place_lng='<%= place_lng%>'" class="">
+					<span class="ico_comm ico_map">지도</span>지도</a>
 				</div>
 			</div>
 			<div class="details_placeinfo">
@@ -47,48 +64,52 @@
 						<span class="ico_comm ico_address">위치</span>
 					</h4>
 					<div class="location_detail">
-						<span class="txt_address">주소<span class="bg_bar"></span></span>
+						<span class="txt_address"><%=plist.get(0).getPlace_addr()%><span class="bg_bar"></span></span>
 					</div>
 				</div>
+				<%if(plist.get(0).getPlace_openhour() != null) {%>
 				<div class="placeinfo_default">
 					<h4 class="tit_detail">
 						<span class="ico_comm ico_operation">운영시간 안내</span>
 					</h4>
 					<div class="location_detail openhour_wrap">
 						<div class="location_present">
-							<strong class="tit_operation fst"> </strong>
-
+							<strong class="tit_operation fst"></strong>
 							<ul class="list_operation">
-								<li><span class="txt_operation">요일 <span
-										class="time_operation">시간</span>
+								<li><span class="txt_operation"><%=plist.get(0).getPlace_openhour()%>
 
 								</span></li>
 							</ul>
 						</div>
 					</div>
 				</div>
+				<% } %>
+				<%if(plist.get(0).getPlace_homepage() != null) {%>
 				<div class="placeinfo_default placeinfo_homepage">
 					<h4 class="tit_detail">
 						<span class="ico_comm ico_homepage">홈 페이지</span>
 					</h4>
 					<div class="location_detail">
 						<div class="location_present">
-							<a class="link_homepage">www.주소에 링크걸기.com</a>
+							<a class="link_homepage" href="http://<%=plist.get(0).getPlace_homepage()%>"><%=plist.get(0).getPlace_homepage()%></a>
 						</div>
 					</div>
 				</div>
+				<% } %>
+				<%if(plist.get(0).getPlace_pn() != null) {%>
 				<div class="placeinfo_default placeinfo_contact">
 					<h4 class="tit_detail">
 						<span class="ico_comm ico_contact">연락처</span>
 					</h4>
 					<div class="location_detail">
 						<div class="location_present">
-							<span class="num_contact"> <span class="txt_contact">02-0000-0000</span>
+							<span class="num_contact"> <span class="txt_contact"><%=plist.get(0).getPlace_pn()%></span>
 								<span class="color_g">대표번호</span>
 							</span>
 						</div>
 					</div>
 				</div>
+				<% } %>
 			</div>
 		</div>
 		<!-- 후기 작성 -->
